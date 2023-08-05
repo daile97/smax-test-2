@@ -3,22 +3,35 @@ import { RouterModule, Routes } from '@angular/router';
 import { PostsComponent } from './posts/posts.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'posts',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
-    path: 'posts', component: PostsComponent
+    path: 'posts',
+    component: PostsComponent,
   },
   {
-    path: 'posts/:id', component: PostDetailComponent
+    path: 'posts/:id',
+    component: PostDetailComponent,
   },
   {
-    path: 'new-post', component: NewPostComponent
-  }
+    path: 'new-post',
+    component: NewPostComponent,
+  },
+  {
+    path: 'edit-post/:id',
+    component: EditPostComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({

@@ -1,6 +1,13 @@
-<div class="w-full min-h-screen antialiased">
+<div class="relative w-full min-h-screen antialiased">
   <app-header></app-header>
   <div class="px-5 sm:px-10 md:px-32 lg:px-40 py-5 flex flex-col gap-5">
     <router-outlet></router-outlet>
+  </div>
+  <div *ngIf="messageService.message.length"
+    class="flex justify-center items-center gap-5 fixed bg-white top-[calc(100vh-50px)] w-fit px-2 py-1 rounded-md left-1/2 -translate-x-1/2 border-2 border-black font-bold">
+    <p>{{ messageService.message }}</p>
+    <button (click)="messageService.clear()" class="bg-black text-white py-1 px-2 rounded-md">
+      Close
+    </button>
   </div>
 </div>

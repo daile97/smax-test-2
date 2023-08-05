@@ -1,0 +1,23 @@
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-3 h-full">
+  <label for="title" class="font-bold text-xl">Title</label>
+  <input id="title" type="text" class="border-[1px] border-gray-700 rounded-md px-2 py-1" formControlName="title" />
+  <label for="picture" class="font-bold text-xl">Picture</label>
+  <input id="picture" type="text" class="border-[1px] border-gray-700 rounded-md px-2 py-1" formControlName="picture" />
+  <label for="description" class="font-bold text-xl">Description</label>
+  <textarea id="description" class="border-[1px] border-gray-700 rounded-md px-2 py-1"
+    formControlName="description"></textarea>
+  <label for="detail" class="font-bold text-xl">Detail</label>
+  <textarea id="detail" class="border-[1px] border-gray-700 rounded-md px-2 py-1 h-80"
+    formControlName="detail"></textarea>
+  <div class="flex gap-2 self-end">
+    <button type="button" class="bg-black text-white py-1 px-2 rounded-md hover:scale-105 active:scale-95">
+      <a routerLink="">Close</a>
+    </button>
+    <button type="submit" [disabled]="!postForm.valid"
+      class="disabled:bg-gray-600 disabled:scale-100 bg-black text-white py-1 px-2 rounded-md hover:scale-105 active:scale-95 flex gap-1 items-center">
+      Save
+      <span *ngIf="loading"
+        class="block w-3 h-3 rounded-full border-2 border-white border-r-transparent animate-spin"></span>
+    </button>
+  </div>
+</form>
